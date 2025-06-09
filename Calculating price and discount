@@ -1,0 +1,48 @@
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        // Console.WriteLine ("Try programiz.pro");
+//         You are writing a small piece of software for a cashier. A customer is buying 2 items that cost $15.99 each. They are also buying 3 items that cost $7.50 each. The local sales tax is 8% (0.08).
+
+// Your Task: Write a few lines of C# code to do the following:
+
+// Calculate the total cost of all items before tax (the subtotal).
+// Calculate the total amount of sales tax.
+// Calculate the final total cost (subtotal + tax).
+        
+        decimal firstItemPrice = 15.99m;
+        decimal secondItemPrice = 7.50m;
+        string userInput;
+        Console.WriteLine("Enter the quantity for the first item : ");
+        userInput = Console.ReadLine();
+        int firstItemQuant = Convert.ToInt32(userInput);
+        
+        Console.WriteLine("Enter the quantity for the second item : ");
+        userInput = Console.ReadLine();
+        int secondItemQuant = Convert.ToInt32(userInput);
+        
+        decimal beforeTax  = ((firstItemPrice *  firstItemQuant) + (secondItemPrice * secondItemQuant));
+        decimal discount = 0m;
+        if(beforeTax >50)
+        {
+            discount = 0.1m * beforeTax;
+            Console.WriteLine("Yayyy! 10% off applied : "+ discount);
+        }
+        else
+        {
+            Console.WriteLine("Discount not applied!(amount<50$)");
+        }
+        
+        decimal totalTax = beforeTax * .08m;
+        decimal TotalAmount = beforeTax + totalTax;
+        
+        Console.WriteLine(beforeTax);
+        Console.WriteLine(totalTax);
+        Console.WriteLine(TotalAmount);
+
+
+    }
+}
