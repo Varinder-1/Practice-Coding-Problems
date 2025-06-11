@@ -1,0 +1,44 @@
+
+using System;
+using System.Collections.Generic;
+class HelloWorld {
+  static void Main() {
+      Dictionary<string,string> tickets = new Dictionary<string,string>
+      {
+          {"Punjab", "Delhi"},
+          {"Mumbai", "Bangalore"},
+          {"Delhi", "Mumbai"}
+      };
+      HashSet<string> sources = new HashSet<string>(tickets.Keys);
+      HashSet<string> destinations = new HashSet<string>(tickets.Values);
+      
+      string start = null;
+      
+      foreach(var src in tickets.Keys)
+      {
+          if(!destinations.Contains(src))
+          {
+              start = src;
+              break;
+          }
+      }
+      Console.WriteLine(start);
+      
+      string end = null;
+      foreach(var dest in destinations)
+      {
+          if(!sources.Contains(dest))
+          {
+              end = dest;
+              break;
+          }
+      }
+      Console.WriteLine($"End: {end}");
+      
+      while(start != null && tickets.ContainsKey(start))
+      {
+          Console.WriteLine($"{start} -> {tickets[start]}");
+          start = tickets[start];
+      }
+  }
+}
