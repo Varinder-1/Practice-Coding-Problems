@@ -1,0 +1,33 @@
+
+using System;
+using System.Collections.Generic;
+class HelloWorld {
+  static void Main() {
+    //Console.WriteLine("Hello World");
+    int[] arr1 = {1,3,5,7,9,0,-2,-4,-6};
+    int[] arr2 = {3,-5,7,-9,0,2,-4,6};
+    
+    HashSet<int> set2 = new HashSet<int>();
+    foreach(int num in arr2)
+    {
+        set2.Add(num);
+    }
+    
+    HashSet<int> set1 = new HashSet<int>();
+    
+    int maxSum = 0;
+    int sumTotal = 0;
+    foreach(int num in arr1)
+    {
+        if(set2.Contains(num) && !set1.Contains(num))
+        {
+            maxSum += num;
+            if(maxSum > sumTotal)
+            sumTotal = maxSum;
+            set1.Add(num);
+        }
+    }
+    
+    Console.WriteLine(sumTotal);
+  }
+}
