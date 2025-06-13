@@ -27,7 +27,6 @@ class HelloWorld {
             set1.Add(num);
         }
     }
-    
     Console.WriteLine(sumTotal);
   }
 }
